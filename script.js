@@ -114,7 +114,7 @@ rockBtn.addEventListener("click", (e)=> {
 paperBtn.addEventListener("click", (e)=> {
     humanChoice = "paper";
     playRound(humanChoice,getComputerChoice());
-    picks.textContent = "You chose: " + humanChoice + "and the computer chose: " + computerChoice;
+    picks.textContent = "You chose: " + humanChoice + " and the computer chose: " + computerChoice;
     scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
     gameOver ();
 });
@@ -122,7 +122,7 @@ paperBtn.addEventListener("click", (e)=> {
 scissorsBtn.addEventListener("click", (e)=> {
     humanChoice = "scissors";
     playRound(humanChoice,getComputerChoice());
-    picks.textContent = "You chose: " + humanChoice + + "and the computer chose: " + computerChoice;
+    picks.textContent = "You chose: " + humanChoice + " and the computer chose: " + computerChoice;
     scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
     gameOver ();
 });
