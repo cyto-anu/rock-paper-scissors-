@@ -2,19 +2,17 @@
 function getComputerChoice () {
     let randomNumber = Math.random();
     if (randomNumber < (1/3)){
+        computerChoice = "rock";
         return "rock";
     } if (randomNumber > (2/3)){
+        computerChoice = "paper";
         return "scissors";
     } else {
+        computerChoice = "scissors";
         return "paper";
     };
 };
 
-// returns user prompt input as string
-function getHumanChoice () {
-    let humanPrompt = prompt();
-    return humanPrompt;
-};
 
 //globally declared scores to start the game
 let humanScore = 0;
@@ -61,11 +59,11 @@ function playRound (humanChoice, computerChoice) {
 
 
 function playGame () {
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
-    playRound(getHumanChoice(),getComputerChoice());
+    playRound(humanChoice,getComputerChoice());
+    playRound(humanChoice,getComputerChoice());
+    playRound(humanChoice,getComputerChoice());
+    playRound(humanChoice,getComputerChoice());
+    playRound(humanChoice,getComputerChoice());
 };
 
 function whoWon () {
@@ -78,3 +76,53 @@ function whoWon () {
         console.log("YOUVE TIED THE GAME!")
     };
 };
+
+///event listeners below
+
+const rockBtn = document.querySelector(".rock");
+const paperBtn = document.querySelector(".paper");
+const scissorsBtn = document.querySelector(".scissors");
+
+const scoreDiv = document.querySelector(".score");
+
+const picks = document.querySelector(".picks");
+
+function gameOver () {
+    if (humanScore == 5) {
+        console.log("human wins!");
+        scoreDiv.textContent = "YOU WIN!!! " + "You: " + humanScore + " Computer: " + computerScore;
+        humanScore = 0;
+        computerScore = 0;
+        } if (computerScore == 5) {
+            console.log("computer wins!");
+            scoreDiv.textContent = "COMPUTER WINS!!! " + "You: " + humanScore + " Computer: " + computerScore;
+            humanScore = 0;
+            computerScore = 0;
+
+        };
+};
+
+rockBtn.addEventListener("click", (e)=> {
+    humanChoice = "rock";
+    playRound(humanChoice,getComputerChoice());
+    picks.textContent = "You chose: " + humanChoice + " and the computer chose: " + computerChoice;
+    scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
+    gameOver ();
+
+});
+
+paperBtn.addEventListener("click", (e)=> {
+    humanChoice = "paper";
+    playRound(humanChoice,getComputerChoice());
+    picks.textContent = "You chose: " + humanChoice + "and the computer chose: " + computerChoice;
+    scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
+    gameOver ();
+});
+
+scissorsBtn.addEventListener("click", (e)=> {
+    humanChoice = "scissors";
+    playRound(humanChoice,getComputerChoice());
+    picks.textContent = "You chose: " + humanChoice + + "and the computer chose: " + computerChoice;
+    scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
+    gameOver ();
+});
