@@ -104,7 +104,8 @@ function gameOver () {
 
 rockBtn.addEventListener("click", (e)=> {
     humanChoice = "rock";
-    playRound(humanChoice,getComputerChoice());
+    computerChoice = getComputerChoice();
+    playRound(humanChoice,computerChoice);
     picks.textContent = "You chose: " + humanChoice + " and the computer chose: " + computerChoice;
     scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
     gameOver ();
@@ -113,7 +114,8 @@ rockBtn.addEventListener("click", (e)=> {
 
 paperBtn.addEventListener("click", (e)=> {
     humanChoice = "paper";
-    playRound(humanChoice,getComputerChoice());
+    computerChoice = getComputerChoice();
+    playRound(humanChoice,computerChoice);
     picks.textContent = "You chose: " + humanChoice + " and the computer chose: " + computerChoice;
     scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
     gameOver ();
@@ -121,7 +123,8 @@ paperBtn.addEventListener("click", (e)=> {
 
 scissorsBtn.addEventListener("click", (e)=> {
     humanChoice = "scissors";
-    playRound(humanChoice,getComputerChoice());
+    computerChoice = getComputerChoice();
+    playRound(humanChoice,computerChoice);
     picks.textContent = "You chose: " + humanChoice + " and the computer chose: " + computerChoice;
     scoreDiv.textContent = "You: " + humanScore + " Computer: " + computerScore;
     gameOver ();
